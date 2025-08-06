@@ -1,6 +1,9 @@
-# 👋 Hey there, I'm Safal Gupta!
+<h1 align="center">Hi 👋, I'm Safal Gupta</h1>
+<h3 align="center">🚀 Tech Enthusiast | Aspiring Quant Analyst & SDE | IoT @ VIT Vellore | Open Source Explorer</h3>
 
-🚀 **Tech Enthusiast | Aspiring Quant Analyst & SDE | IoT @ VIT Vellore | Open Source Explorer**  
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=Building+MemoryMate+Offline+AI+Tool;Aspiring+Top+1%25+Quant+Engineer;Computer+Vision+%7C+IoT+%7C+Cloud+;Driven+to+Innovate+and+Disrupt" alt="Typing SVG" />
+</p>
 
 ---
 
@@ -21,7 +24,7 @@
 ---
 
 ### 🧰 Technologies & Tools
-```python
+```text
 Python | C/C++ | HTML/CSS | JavaScript | Assembly (8051) | Git | GitHub | Linux | MySQL |
 OpenCV | MATLAB | Arduino | ESP32 | Cloud Platforms | Notion | VS Code
 ```
@@ -35,6 +38,13 @@ OpenCV | MATLAB | Arduino | ESP32 | Cloud Platforms | Notion | VS Code
   <img src="https://github-readme-streak-stats.herokuapp.com?user=Safalguptaofficial&theme=tokyonight&hide_border=false" />
   <br/>
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Safalguptaofficial&layout=compact&theme=tokyonight" />
+</p>
+
+---
+
+### 🔥 GitHub Activity Graph
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Safalguptaofficial&theme=tokyo-night" alt="GitHub Activity Graph" />
 </p>
 
 ---
@@ -58,5 +68,10 @@ If you like my work, consider supporting me: [Buy Me a Coffee](https://www.buyme
 
 ---
 
-![Profile Views](https://komarev.com/ghpvc/?username=Safalguptaofficial&color=blueviolet)
-![GitHub Snake Light](https://raw.githubusercontent.com/Safalguptaofficial/Safalguptaofficial/output/github-contribution-grid-snake.svg)
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=Safalguptaofficial&label=Profile+views&color=blueviolet&style=flat" alt="visitor badge" />
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Safalguptaofficial/Safalguptaofficial/output/github-contribution-grid-snake.svg" alt="GitHub Snake animation" />
+</p>
