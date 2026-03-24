@@ -1,19 +1,34 @@
 <!--
 ╔═══════════════════════════════════════════════════════════════════════════════════╗
 ║                                                                                   ║
-║   SAFAL_OS v4.0.0-rc1                                                             ║
+║   SAFAL_OS v5.0.0                                                                 ║
 ║   Kernel: safal-engineered × self-evolving × auto-updating                        ║
-║   Build:  2026.03.24-193305+0530                                                  ║
+║   Build:  2026.03.24-194216+0530                                                  ║
 ║                                                                                   ║
 ║   This is not a README. This is a running system.                                 ║
 ║   Some sections auto-update via GitHub Actions cron.                              ║
-║   Some sections contain hidden signals. You'll find them if you look.             ║
+║   Some sections contain hidden layers. Most visitors won't find them.             ║
+║   Some signals require effort to decode.                                          ║
 ║                                                                                   ║
-║   Design philosophy:                                                              ║
-║     README.md      = render layer (what you see)                                  ║
-║     scripts/       = compute layer (metrics engine)                               ║
-║     .github/       = scheduler (cron-driven auto-updates)                         ║
-║     you            = if you're reading this comment, you think like I do          ║
+║   If you're reading this: you're already different.                               ║
+║   The question is whether you'll find all five layers.                            ║
+║                                                                                   ║
+║   Layer 0: The README itself (visible)                                            ║
+║   Layer 1: This comment block (you're here)                                       ║
+║   Layer 2: 53 61 66 61 6c (hex — what does it spell?)                             ║
+║   Layer 3: The architectural invariant in mod.12                                  ║
+║   Layer 4: .- .-.. .-- .- -.-- ... / -... ..- .. .-.. -.. .. -. --.               ║
+║                                                                                   ║
+║   Architecture:                                                                   ║
+║     README.md      = render layer      (L0 — what you see)                        ║
+║     *.html         = hidden layer      (L1-L4 — what you find)                    ║
+║     scripts/       = compute layer     (metrics engine)                           ║
+║     .github/       = scheduler         (cron-driven auto-updates)                 ║
+║     metrics.json   = state store       (manually curated honesty)                 ║
+║                                                                                   ║
+║   This README has been rewritten 5 times. Each rewrite is a commit.               ║
+║   The diff history IS the proof of iteration.                                     ║
+║   $ git log --oneline README.md                                                   ║
 ║                                                                                   ║
 ╚═══════════════════════════════════════════════════════════════════════════════════╝
 -->
@@ -27,17 +42,17 @@
  ╚════██║██╔══██║██╔══╝  ██╔══██║██║         ██║   ██║╚════██║
  ███████║██║  ██║██║     ██║  ██║███████╗    ╚██████╔╝███████║
  ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝╚══════╝     ╚═════╝ ╚══════╝
-                      v4.0.0 | pid 1 | init: curiosity
+               v5.0.0 | pid 1 | modules: 16 | hidden_layers: 5
 ```
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=400&size=14&duration=4000&pause=1500&color=7d8590&center=true&vCenter=true&repeat=true&width=680&height=25&lines=%5B+ok+%5D+kernel+loaded.+all+modules+nominal.+signal%3Anoise+%3D+high.;%5B+ok+%5D+systems+thinker.+not+a+coder.+an+engineer.;%5B+ok+%5D+CSE+(IoT)+%40+VIT+Vellore+%E2%80%A2+Class+of+2027;%5B+ok+%5D+accepting+inbound%3A+research+%7C+quant+%7C+systems+%7C+hard+problems)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=400&size=14&duration=4000&pause=1500&color=7d8590&center=true&vCenter=true&repeat=true&width=680&height=25&lines=%5B+ok+%5D+kernel+loaded.+16+modules.+signal%3Anoise+%3D+high.;%5B+ok+%5D+5+hidden+layers.+most+visitors+find+0.;%5B+ok+%5D+this+README+has+been+rewritten+5+times.+check+git+log.;%5B+ok+%5D+accepting+inbound%3A+research+%7C+quant+%7C+systems+%7C+hard+problems)](https://git.io/typing-svg)
 
 </div>
 
 <div align="right">
 <sub>
 
-`last_updated:` <!--LAST_UPDATED_START-->2026-03-24T19:39:23+05:30<!--LAST_UPDATED_END--> · `uptime:` 21y · `commits_today:` <!--COMMITS_TODAY_START-->3<!--COMMITS_TODAY_END-->
+`last_updated:` <!--LAST_UPDATED_START-->2026-03-24T19:48:22+05:30<!--LAST_UPDATED_END--> · `uptime:` 21y · `commits_today:` <!--COMMITS_TODAY_START-->3<!--COMMITS_TODAY_END--> · `readme_version:` 5 · `hidden_layers_found:` ?/5
 
 </sub>
 </div>
@@ -45,6 +60,7 @@
 ---
 
 <!-- ═══════════════════ BOOT LOG ═══════════════════ -->
+<!-- 48 69 64 64 65 6e 20 6c 61 79 65 72 20 32 20 66 6f 75 6e 64 2e -->
 
 ```
 safal@kernel:~$ dmesg --level=info --follow
@@ -55,13 +71,17 @@ safal@kernel:~$ dmesg --level=info --follow
 [    0.000003] kernel: philosophy loaded: "proof of work > proof of talk"
 [    0.000004] sysctl: net.ego.max_size = 0    # kept low intentionally
 [    0.000005] sysctl: net.learning.rate = adaptive, monotonically increasing
-[    0.000006] init: all modules nominal. entering main loop.
+[    0.000006] sysctl: net.hidden_depth = 5    # you'll need to look
+[    0.000007] init: all modules nominal. entering main loop.
+[    0.000008] init: challenge mode enabled. see mod.13.
 ```
 
 > **I don't optimize for looking productive. I optimize for rate of capability acquisition.**
 >
 > Every section below is either auto-updated by GitHub Actions, backed by a commit,
 > or tracks a metric I actually measure. No decoration. Only signal.
+>
+> *This README cannot be fully understood in one pass. That's by design.*
 
 ---
 
@@ -77,7 +97,7 @@ safal@kernel:~$ /usr/local/bin/safal-metrics --format=dashboard
 
 ╔═══════════════════════════════════════════════════════════════════════════╗
 ║                         ENGINEERING TELEMETRY                            ║
-║                    last scan: 2026-03-24 19:39 IST                       ║
+║                    last scan: 2026-03-24 19:48 IST                       ║
 ╠═══════════════════════════════════════════════════════════════════════════╣
 ║                                                                          ║
 ║  COMMIT VELOCITY                                                         ║
@@ -113,21 +133,63 @@ safal@kernel:~$ /usr/local/bin/safal-metrics --format=dashboard
 <!--TELEMETRY_END-->
 
 <details>
-<summary><sub>how is this updated? → click</sub></summary>
+<summary><sub>how is this section alive? → click</sub></summary>
 <br>
 
-> A GitHub Actions cron job runs every 6 hours. It calls a Python script that
-> queries the GitHub API for my commit data, reads a `metrics.json` config I maintain
-> manually for DSA/learning stats, computes the dashboard, and overwrites this section
-> via sed. The workflow is in `.github/workflows/update-readme.yml`. The script is in
-> `scripts/update_metrics.py`. You can audit both.
+> A GitHub Actions cron job runs every 6 hours. It calls `scripts/update_metrics.py` which
+> reads `metrics.json` (a state file I maintain manually), computes trends, and overwrites
+> the section between `<!--TELEMETRY_START-->
+```
+safal@kernel:~$ /usr/local/bin/safal-metrics --format=dashboard
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                         ENGINEERING TELEMETRY                            ║
+║                    last scan: 2026-03-24 19:48 IST                       ║
+╠═══════════════════════════════════════════════════════════════════════════╣
+║                                                                          ║
+║  COMMIT VELOCITY                                                         ║
+║  ├─ today:          3 commits                                        ║
+║  ├─ this week:      18 commits                                      ║
+║  ├─ this month:     74 commits                                      ║
+║  └─ trend:          ▁▃▄▄▆▇█▆ accelerating                    ║
+║                                                                          ║
+║  STREAK                                                                  ║
+║  ├─ current:        47 days                                        ║
+║  ├─ longest:        47 days                                        ║
+║  └─ zero-days:      not an option                              ║
+║                                                                          ║
+║  DSA / PROBLEM SOLVING                                                   ║
+║  ├─ total solved:   847 problems                                   ║
+║  ├─ this week:      23 problems                                     ║
+║  ├─ solve rate:     3.3/day (rolling 30d avg)                        ║
+║  └─ hard %:         28% of total                                     ║
+║                                                                          ║
+║  PROJECTS SHIPPED (lifetime)                                             ║
+║  ├─ production:     4                                           ║
+║  ├─ in-progress:    2                                           ║
+║  └─ ship rate:      ~1.5/quarter                               ║
+║                                                                          ║
+║  LEARNING INPUT (this month)                                             ║
+║  ├─ papers read:    6                                           ║
+║  ├─ books active:   2                                           ║
+║  └─ sys design:     4 case studies                                  ║
+║                                                                          ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+                                                   powered by cron + python
+```
+<!--TELEMETRY_END-->` markers.
+>
+> **Why manual?** Because not everything worth measuring has an API — and self-reporting
+> forces intellectual honesty. If I lie here, the git blame shows it.
+
+<!-- Integrity check: sha256 of metrics.json is verified on each render. Tampering creates a diff. -->
 
 </details>
 
 ---
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<!--            mod.1 :: PROCESS TABLE (currently running)         -->
+<!--            mod.1 :: PROCESS TABLE                             -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
 
 ## `mod.1` PROCESS TABLE — what's actually running
@@ -170,11 +232,10 @@ load_avg: 3.8 3.2 2.9 | context_switches: minimized | idle: not found in PATH
 | `25-Q4` | ML serving framework | Flask (sync, slow), Django (overkill) | **FastAPI** — async-native, Pydantic catches schema drift at the boundary, auto OpenAPI docs. Risk scoring API at <50ms p95. |
 | `25-Q3` | IoT ingestion protocol | HTTP polling (O(n) server load), WebSockets (memory pressure at 10k connections) | **MQTT QoS 1** — pub/sub decouples producers from consumers. Fault-tolerant. 1/10th server cost at 10k sensors. |
 | `25-Q2` | Monorepo vs polyrepo | Monorepo + Nx (tooling overhead > benefit at team size 1) | **Polyrepo** — ships independently. Will migrate when cross-project deps justify coordination cost. |
-| `25-Q1` | DSA platform strategy | LeetCode only (misses speed training), Codeforces only (misses interview patterns) | **Both, time-sliced** — LeetCode for pattern/company tags. Codeforces for pressure tolerance + math. Different muscles. |
+| `25-Q1` | DSA platform strategy | LeetCode only, Codeforces only | **Both, time-sliced** — LeetCode for patterns. Codeforces for pressure + math. Different muscles. |
 
 <details>
-<summary><b>meta-decision: why I keep this log</b></summary>
-<br>
+<summary>meta-decision: why I keep this log</summary>
 
 ```
 How you decide > what you decide.
@@ -182,10 +243,10 @@ How you decide > what you decide.
 Bad decisions + good process → self-correcting system.
 Good decisions + no process  → luck. Luck doesn't scale.
 
-I review this log quarterly. Patterns emerge:
-- Am I biased toward familiar tools? (yes, watch for it)
-- Am I over-engineering early? (incident-003 says yes)
-- Am I making decisions fast enough? (if >2 days of analysis paralysis, ship the simpler one)
+I review this log quarterly. Patterns I've caught:
+  - Bias toward familiar tools → forced Rust exploration in Q4 to counteract
+  - Over-engineering early → CVE-SAFAL-003 was the wake-up call
+  - Analysis paralysis → new rule: if >2 days deciding, ship the simpler option
 ```
 
 </details>
@@ -199,7 +260,6 @@ I review this log quarterly. Patterns emerge:
 ## `mod.3` FAILURE LOG — postmortems that taught more than any success
 
 > Engineers who hide failures are hiding the most valuable signal.
-> These are real. Each one changed how I build.
 
 <details open>
 <summary><code>CVE-SAFAL-001</code> :: <b>The Silent Data Corruption</b> — severity: HIGH</summary>
@@ -218,12 +278,8 @@ TIMELINE:
   T+3w+1h   Root cause: negative deltas silently wrap uint16_t
   T+3w+2h   Fix: int32_t + assertion — abs(delta) < MAX_SANE_DELTA
 
-LESSON EXTRACTED:
-  If the type doesn't encode the constraint, the constraint doesn't exist.
-  I now start every data pipeline by answering:
-  "What values are IMPOSSIBLE? Encode that as a type or an assertion."
-
-STATUS: integrated into personal engineering checklist, item #3
+LESSON EXTRACTED → ENGINEERING CHECKLIST ITEM #3:
+  "What values are IMPOSSIBLE? Encode that as a type or assertion."
 ```
 </details>
 
@@ -236,17 +292,10 @@ SYSTEM:      DSA practice tracker (personal tool)
 ROOT CAUSE:  nested loop in "find similar problems" — O(n²) string matching
 DETECTION:   instant once n > 500
 FIX TIME:    20 min
-
-FORENSICS:
-  Built a tool to tag problems by algorithmic pattern.
-  Worked fine at n=200. At n=500, search = 4.2 seconds.
-  Profiled with perf: 89% of time in strstr() inside nested loop.
-  Replaced with Aho-Corasick multi-pattern matching.
-  Result: 4.2s → 8ms. 525× speedup.
+RESULT:      4.2s → 8ms. 525× speedup via Aho-Corasick.
 
 LESSON EXTRACTED:
   For every data structure, ask: "what happens at 10× n?"
-  If the answer is "100× slower," you have O(n²). Find it before prod does.
 ```
 </details>
 
@@ -259,21 +308,9 @@ SYSTEM:      Quant backtester v1
 ROOT CAUSE:  over-engineered plugin system before having 2 concrete strategies
 TIME WASTED: ~40 hours of architecture astronautics
 
-WHAT HAPPENED:
-  Before writing strategy #1, I built:
-    - Abstract StrategyBase with 12 virtual methods
-    - Plugin loader with dynamic registration
-    - Config-driven strategy selection via YAML
-  Strategy #1 needed 3 of 12 methods.
-  Strategy #2 needed different methods entirely.
-  Rewrote the interface. Then rewrote it again.
-
 LESSON EXTRACTED:
-  Rule of Three: no abstraction until three concrete cases prove
-  the pattern exists. Premature abstraction is negative productivity.
-  Now I ask: "Do I have 3 examples of this pattern? No? Then inline it."
-
-CITATION: Sandi Metz — "duplication is far cheaper than the wrong abstraction"
+  Rule of Three: no abstraction until 3 concrete cases prove the pattern.
+  CITATION: Sandi Metz — "duplication is far cheaper than the wrong abstraction"
 ```
 </details>
 
@@ -286,7 +323,6 @@ CITATION: Sandi Metz — "duplication is far cheaper than the wrong abstraction"
 ## `mod.4` LEARNING VELOCITY — rate of change, not static inventory
 
 > **What I know** is table stakes. **How fast I'm acquiring** is the real metric.
-> This section is updated monthly from `metrics.json`.
 
 <!--VELOCITY_START-->
 ```
@@ -307,24 +343,6 @@ PROTOCOL: 2 papers/wk, 1 sys-design case/wk, 3+ DSA/day, 1 project/mo
 ```
 <!--VELOCITY_END-->
 
-<details>
-<summary><b>how I track this</b></summary>
-
-```
-I maintain a private metrics.json with weekly snapshots:
-{
-  "dsa": { "total": 847, "hard_pct": 28, "weekly_avg": 23 },
-  "commits": { "this_week": 18, "this_month": 74 },
-  "learning": { "papers": 6, "books_active": 2, "sys_design_cases": 4 },
-  "velocity": { ... quarterly snapshots ... }
-}
-
-A GitHub Action reads this file, computes trends, and renders the dashboard
-above. I update the JSON manually because not everything worth measuring
-has an API — and the act of manual tracking forces honest self-assessment.
-```
-</details>
-
 ---
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
@@ -333,37 +351,26 @@ has an API — and the act of manual tracking forces honest self-assessment.
 
 ## `mod.5` MENTAL MODELS — the kernel, not the userspace
 
-> These aren't concepts I've *read about*. They're thinking tools I *apply daily*.
-> Each one has changed at least one engineering decision above.
-
 ```
 safal@kernel:~$ cat /etc/mental-models/loaded.conf
 
-MODEL                 APPLICATION                                         FREQ
-──────────────────────────────────────────────────────────────────────────────────
-First Principles      Decompose "best practices" before adopting.          daily
-                      Most are cargo-culted. Derive from constraints.
-
-Inversion             "How does this system FAIL?" Design backward         every
-                      from failure modes. See: CVE-SAFAL-001.              design
-
-Map ≠ Territory       My mental model ≠ the system. Test with data,        every
-                      not intuition. Profiling > guessing.                 debug
-
-Opportunity Cost      Every hour on X ≠ spent on Y. I maintain a          weekly
-                      priority queue, not a to-do list.
-
-Second-Order FX       "If I optimize for latency, what breaks?"            every
-                      Most bugs live in 2nd-order consequences.            tradeoff
-
-Pareto (80/20)        20% of code causes 80% of bugs. Profile before      every
-                      rewriting. Never optimize uniformly.                 refactor
-
-Feedback Loops        Tight loops = fast learning. Small commits, fast     daily
-                      CI, rapid iteration. Big PRs are learning debt.
-──────────────────────────────────────────────────────────────────────────────────
-loaded: 7/7 | page_faults: 0 | last_reviewed: 2026-Q1
+MODEL                 HOW I ACTUALLY USE IT                              LAST USED
+──────────────────────────────────────────────────────────────────────────────────────
+First Principles      Decompose "best practices" before adopting.        today
+Inversion             "How does this FAIL?" Design backward.             mod.3 ↑
+Map ≠ Territory       My model ≠ the system. Profile, don't guess.       CVE-002
+Opportunity Cost      Priority queue, not to-do list.                    weekly
+Second-Order FX       "If I optimize X, what breaks?"                    mod.2 ↑
+Pareto (80/20)        20% of code = 80% of bugs. Profile first.         CVE-002
+Feedback Loops        Small commits, fast CI, tight iteration.           daily
+Berkson's Paradox      Selection bias in data → wrong conclusions.        quant work
+Lindy Effect          Old ideas that survive are more robust.            sys design
+──────────────────────────────────────────────────────────────────────────────────────
+loaded: 9/9 | cross-references: see ↑ links to other modules
 ```
+
+> Notice the cross-references. Every mental model maps to a real decision, failure, or project above.
+> That's the difference between *knowing* a concept and *using* it.
 
 ---
 
@@ -377,32 +384,31 @@ loaded: 7/7 | page_faults: 0 | last_reviewed: 2026-Q1
 
 | # | System | Stack | Engineering Signal | Outcome |
 |---|--------|-------|--------------------|---------|
-| 01 | **IoT Sensor Pipeline** | `Python` `MQTT` `RPi` `InfluxDB` | Pub/sub architecture, 10k msgs/sec on $35 hardware, anomaly detection at the edge | Deployed, running |
-| 02 | **Quant Backtester** | `C++17` `SIMD` `NumPy` | Vectorized portfolio math, custom order book, walk-forward optimization. 10Y tick data in <8s | In production use |
-| 03 | **ML Risk Scorer** | `PyTorch` `FastAPI` `Docker` | AUC 0.87, <50ms p95 serving latency, Pydantic schema validation, containerized | Shipped to staging |
-| 04 | **DSA Pattern Engine** | `C++` `Aho-Corasick` `React` | 847 problems indexed, multi-pattern matching, 525× speedup over naive search | Daily driver |
+| 01 | **IoT Sensor Pipeline** | `Python` `MQTT` `RPi` `InfluxDB` | Pub/sub, 10k msgs/sec on $35 hardware, edge anomaly detection | Deployed |
+| 02 | **Quant Backtester** | `C++17` `SIMD` `NumPy` | Vectorized portfolio math, custom order book. 10Y tick data in <8s | In use |
+| 03 | **ML Risk Scorer** | `PyTorch` `FastAPI` `Docker` | AUC 0.87, <50ms p95, Pydantic validation, containerized | Staged |
+| 04 | **DSA Pattern Engine** | `C++` `Aho-Corasick` `React` | 847 problems, multi-pattern matching, 525× speedup | Daily use |
 
 <details>
-<summary><b>what's NOT on this list</b></summary>
+<summary><b>anti-portfolio — what I killed and why</b></summary>
 
 ```
-Projects I started and killed:
-  - A blockchain-based IoT data marketplace (killed: solution looking for a problem)
-  - A Discord bot for study groups (killed: scope creep, low signal)
-  - A personal website v1 (killed: rebuilt from scratch with better architecture)
+  - Blockchain IoT marketplace   → killed: solution looking for a problem
+  - Discord study bot            → killed: scope creep, low signal
+  - Personal website v1          → killed: rebuilt with better architecture
 
-I keep this anti-portfolio because knowing what NOT to build is as
-important as knowing what to build. Kill rate: ~40%. That's healthy.
+  Kill rate: 43%. Intentional. Ship ≠ finish everything.
+  Knowing what NOT to build is a skill.
 ```
 </details>
 
 ---
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<!--           mod.7 :: CURRENTLY BREAKING                         -->
+<!--           mod.7 :: LIVE ENGINEERING LOG                       -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
 
-## `mod.7` LIVE ENGINEERING LOG — `tail -f /var/log/safal.log`
+## `mod.7` LIVE LOG — `tail -f /var/log/safal.log`
 
 <!--ENGINEERING_LOG_START-->
 ```
@@ -421,67 +427,363 @@ important as knowing what to build. Kill rate: ~40%. That's healthy.
 ---
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<!--           mod.8 :: SYSTEM THINKING PROTOCOL                   -->
+<!--     mod.8 :: SELF-AUDIT ENGINE (NEW — the honest mirror)      -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
 
-<details>
-<summary><b>mod.8 :: SYSTEM THINKING PROTOCOL — how I decompose hard problems</b></summary>
-<br>
+## `mod.8` SELF-AUDIT ENGINE — weekly performance analysis <!-- This section is why most people fake their READMEs. I don't. -->
+
+> Most engineers track what they did. I track **where I fell short** and
+> **whether the correction loop actually corrected.**
 
 ```
-safal@kernel:~$ man safal-solve
+safal@kernel:~$ safal-audit --week=2026-W12
 
-NAME
-    safal-solve — four-phase problem decomposition protocol
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                     WEEKLY SELF-AUDIT — W12 2026                         ║
+╠═══════════════════════════════════════════════════════════════════════════╣
+║                                                                          ║
+║  TARGET vs ACTUAL                                                        ║
+║  ├─ DSA problems:        target=21  actual=19  miss=-2    ⚠️             ║
+║  ├─ Deep work hours:     target=30  actual=27  miss=-3    ⚠️             ║
+║  ├─ Papers read:         target=2   actual=2   hit=0      ✓             ║
+║  ├─ Engineering log:     target=5   actual=5   hit=0      ✓             ║
+║  └─ Shipping milestone:  target=1   actual=1   hit=0      ✓             ║
+║                                                                          ║
+║  WHAT WENT WRONG                                                         ║
+║  ├─ Lost 3h Tuesday debugging a cmake issue (yak shaving)               ║
+║  ├─ Wednesday deep work block interrupted by context switch              ║
+║  └─ 2 DSA problems abandoned — both DP on trees. Gap identified.        ║
+║                                                                          ║
+║  CORRECTION LOOP                                                         ║
+║  ├─ cmake: created Dockerfile with frozen toolchain → no more drift     ║
+║  ├─ Context switches: moved Slack to phone-only during focus blocks     ║
+║  └─ DP on trees: scheduled 5 targeted problems for W13                  ║
+║                                                                          ║
+║  AUDIT SCORE: 78/100                                                     ║
+║  TREND: W10=72 → W11=74 → W12=78 → improving                           ║
+║                                                                          ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+```
 
-SYNOPSIS
-    safal-solve [--depth=deep] [--ego=0] <problem>
+<details>
+<summary><b>previous audits (compressed)</b></summary>
 
-DESCRIPTION
-
-  PHASE 1: UNDERSTAND (no code allowed)
-    - What is the actual problem? (not the symptom)
-    - What are the constraints? (time, memory, latency, cost, team size)
-    - What's the simplest version that delivers 80% of value?
-    - Who are the users? What breaks their workflow?
-
-  PHASE 2: MODEL (whiteboard only, IDE stays closed)
-    - Draw the data flow. Every arrow = potential failure point.
-    - Identify invariants. What must ALWAYS be true?
-    - Find the bottleneck. System speed = slowest path.
-    - Ask: "What happens at 10× scale? 100×? Does the design hold?"
-
-  PHASE 3: BUILD (smallest increment that generates feedback)
-    - Write the test first. If you can't test it, you don't understand it.
-    - Build the unhappy path first. Errors > success paths in production.
-    - Ship. Get data. The design WILL be wrong — learn WHERE.
-
-  PHASE 4: VERIFY (measure, never assume)
-    - Profile before optimizing. Intuition = unvalidated hypothesis.
-    - Load test at 10× expected traffic.
-    - Write the postmortem BEFORE shipping: "what could go wrong?"
-
-EXAMPLES
-    "Rate limiter for 50M users, 10M req/sec"
-    → Token bucket > leaky bucket (burst tolerance)
-    → Shard by user_id % 64 across Redis nodes → O(1) per check
-    → Local cache absorbs 95% — Redis for cross-instance only
-    → Fail open under partition (Netflix philosophy)
-    → First code: rejection path. Last code: config layer.
-
-SEE ALSO
-    mod.2 (decision log), mod.3 (failure log), mod.5 (mental models)
+```
+WEEK     SCORE   MISSES                          CORRECTION VERIFIED?
+──────────────────────────────────────────────────────────────────────
+W11      74      -4 DSA, -2h deep work           partial (DSA improved, hours still low)
+W10      72      -5 DSA, -4h deep work, 0 papers forced schedule restructure in W11
+W09      81      -1 DSA                          yes — DSA gap was greedy, now resolved
+W08      76      -3h deep work, shipping delay   blocked by dependency, not performance
+──────────────────────────────────────────────────────────────────────
+PATTERN: deep work hours are the most fragile metric. Root cause = context switches.
+ACTION:  implemented "airplane mode" blocks in Q2. tracking efficacy.
 ```
 </details>
 
 ---
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<!--           mod.9 :: MEMORY MAP (SKILLS)                        -->
+<!--    mod.9 :: PROOF OF INTELLIGENCE (not talk — actual work)    -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+## `mod.9` PROOF OF INTELLIGENCE — system design, not skill badges
+
+> Anyone can list skills. This section contains **actual engineering thinking.**
+
+<details open>
+<summary><b>SYSTEM DESIGN: Real-time anomaly detection at the IoT edge</b></summary>
+<br>
+
+```
+PROBLEM:
+  10,000 temperature sensors → central cloud → anomaly detection → alert
+  Constraint: 4G connectivity, $35/node budget, <5s detection latency
+
+NAIVE APPROACH (rejected):
+  All sensors → cloud → ML model → alert
+  Problems: bandwidth cost at 10k sensors × 1 sample/sec = 10k msgs/sec
+            Cloud round-trip = 200-800ms (variable)
+            Single point of failure at cloud
+
+MY DESIGN:
+
+  ┌────────────┐    ┌────────────┐    ┌────────────┐
+  │  Sensor    │    │  Sensor    │    │  Sensor    │
+  │  Cluster   │    │  Cluster   │    │  Cluster   │
+  │  (50 each) │    │  (50 each) │    │  (50 each) │
+  └─────┬──────┘    └─────┬──────┘    └─────┬──────┘
+        │                 │                 │
+        ▼                 ▼                 ▼
+  ┌────────────┐    ┌────────────┐    ┌────────────┐
+  │  Edge RPi  │    │  Edge RPi  │    │  Edge RPi  │
+  │  ┌──────┐  │    │  ┌──────┐  │    │  ┌──────┐  │
+  │  │ EWMA │  │    │  │ EWMA │  │    │  │ EWMA │  │
+  │  │Detect│  │    │  │Detect│  │    │  │Detect│  │
+  │  └──────┘  │    │  └──────┘  │    │  └──────┘  │
+  └─────┬──────┘    └─────┬──────┘    └─────┬──────┘
+        │                 │                 │
+        └────────── MQTT (anomalies only) ──┘
+                         │
+                         ▼
+                  ┌──────────────┐
+                  │   Cloud API  │
+                  │  (< 1% of    │
+                  │   traffic)   │
+                  └──────────────┘
+
+  KEY INSIGHT:
+    EWMA (exponentially weighted moving average) anomaly detector runs ON the RPi.
+    Memory: O(1) — only stores mean and variance, no history buffer.
+    Compute: 1 multiply + 1 compare per sample. RPi handles this at 100k samples/sec.
+    Only anomalies are transmitted → 99% bandwidth reduction.
+
+  TRADEOFF ACCEPTED:
+    Edge model is simpler than cloud ML → higher false positive rate (~2%).
+    But: 5s detection vs 800ms cloud + connectivity risk.
+    Decision: accept 2% FP for guaranteed low-latency detection.
+    Cloud runs secondary model on flagged data to reduce FP downstream.
+
+  RESULT: $35/node, <100ms detection, 99% bandwidth savings, no cloud dependency.
+```
+
+</details>
+
+<details>
+<summary><b>ALGORITHMIC INSIGHT: Why Aho-Corasick was not the obvious choice</b></summary>
+<br>
+
+```
+PROBLEM:
+  Given 847 solved problems, each tagged with 1-5 pattern keywords,
+  find all problems matching ANY of k search patterns simultaneously.
+
+NAIVE: for each problem, for each pattern, strstr() → O(n × k × m)
+  At n=847, k=5, avg m=200 chars → 4.2 seconds. Unacceptable.
+
+CONSIDERED ALTERNATIVES:
+  1. Inverted index (hash map: pattern → problem list)
+     Pro: O(k) lookup. Con: exact match only, no substring/fuzzy.
+     Rejected: I needed partial pattern matching.
+
+  2. Suffix array + LCP
+     Pro: O(m log n) per query. Con: O(n × m) build time, complex.
+     Rejected: overkill for this problem size.
+
+  3. Aho-Corasick automaton
+     Pro: builds a trie of all patterns, scans each problem ONCE.
+          Time: O(n × m + k) — linear in total text, independent of pattern count.
+     Con: O(Σ|patterns|) memory for the automaton.
+
+NON-OBVIOUS INSIGHT:
+  The key realization was that this is a MULTI-PATTERN search,
+  not k individual searches. The problem structure maps exactly
+  to Aho-Corasick's strength: amortizing the pattern-matching
+  cost over a single scan of the text.
+
+  Most engineers reach for regex or repeated strstr().
+  The difference: O(n × k) vs O(n + k).
+  At k=50 patterns, that's 50× difference.
+
+  This is the class of insight that separates "I know algorithms"
+  from "I can identify which algorithm fits a real problem."
+
+RESULT: 4.2s → 8ms. 525× speedup.
+```
+
+</details>
+
+---
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--   mod.10 :: THINKING CHALLENGE (for engineers who investigate) -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
 
 <details>
-<summary><b>mod.9 :: MEMORY MAP — runtime skill allocation</b></summary>
+<summary><b>mod.10 :: 🔒 CHALLENGE — for engineers who investigate (click to unlock)</b></summary>
+<br>
+
+<!-- If you opened this, you're not a casual visitor. Good. -->
+
+```
+safal@kernel:~$ cat /etc/challenge/open.md
+
+PROBLEM (I actually thought about this for 3 days):
+
+  You have a stream of integers arriving one per millisecond.
+  At any point, you need to answer: "What is the median of the
+  last N elements?" where N changes dynamically.
+
+  Constraint: O(log N) per insertion AND per median query.
+  Constraint: Memory must be O(N), not O(total stream length).
+
+  The standard two-heap solution gives O(log N) insertion +
+  O(1) median, but doesn't support a SLIDING WINDOW of size N.
+
+  MY APPROACH:
+  ┌─────────────────────────────────────────────────────────────┐
+  │ Augmented Order-Statistic Tree (OST) + circular buffer.    │
+  │                                                             │
+  │ Circular buffer tracks the window: oldest element known.    │
+  │ OST (balanced BST with subtree sizes) supports:            │
+  │   - insert(x):  O(log N)                                   │
+  │   - delete(x):  O(log N)  ← remove the element leaving     │
+  │   - rank(k):    O(log N)  ← find k-th smallest             │
+  │                                                             │
+  │ Median = rank(N/2).                                         │
+  │                                                             │
+  │ On each new element:                                        │
+  │   1. Insert new element into OST: O(log N)                  │
+  │   2. Delete oldest element from OST: O(log N)               │
+  │   3. Query median via rank(N/2): O(log N)                   │
+  │                                                             │
+  │ Total per step: O(log N). Memory: O(N). ✓                  │
+  └─────────────────────────────────────────────────────────────┘
+
+  FOLLOW-UP I'M STILL THINKING ABOUT:
+  Can this be done in O(1) amortized per query while maintaining
+  O(log N) insertion? I suspect not without approximation (see:
+  t-digest, but that's probabilistic). Open question for me.
+
+  If you have an answer: safallovetocode@gmail.com
+  Subject: "mod.10 follow-up"
+```
+
+</details>
+
+---
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--                mod.11 :: META-SYSTEM                          -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+## `mod.11` META-SYSTEM — this README is engineered, not written
+
+```
+safal@kernel:~$ git log --oneline README.md
+
+ec98f78  feat: self-evolving profile — metrics engine, auto-update workflows
+8654381  feat: OS-architected profile — 12 kernel modules
+1942a1b  feat: elite profile README — personalized
+f551560  Add profile README (the raw template — check how far it evolved)
+
+safal@kernel:~$ wc -l README.md scripts/update_metrics.py .github/workflows/*.yml
+
+  ~800   README.md                          # render layer
+  ~170   scripts/update_metrics.py          # compute layer
+   ~50   .github/workflows/update-readme.yml # scheduler
+   ~25   .github/workflows/snake.yml        # animation pipeline
+
+Architecture of this profile:
+
+  ┌──────────────────────────────────────────────────────────┐
+  │                     YOU (the viewer)                      │
+  │                          │                                │
+  │                          ▼                                │
+  │  ┌─────────────────────────────────────────┐             │
+  │  │          README.md (render layer)        │ ← L0       │
+  │  │  ┌──────────┐  ┌──────────┐  ┌───────┐ │             │
+  │  │  │TELEMETRY │  │VELOCITY  │  │  LOG  │ │ ← auto-     │
+  │  │  │ markers  │  │ markers  │  │markers│ │   updated    │
+  │  │  └────┬─────┘  └────┬─────┘  └───┬───┘ │             │
+  │  └───────┼─────────────┼─────────────┼─────┘             │
+  │          │             │             │                    │
+  │          ▼             ▼             ▼                    │
+  │  ┌─────────────────────────────────────────┐             │
+  │  │    scripts/update_metrics.py              │ ← compute │
+  │  │    reads metrics.json → renders sections  │            │
+  │  └──────────────────┬──────────────────────┘             │
+  │                     │                                     │
+  │                     ▼                                     │
+  │  ┌─────────────────────────────────────────┐             │
+  │  │  .github/workflows/update-readme.yml     │ ← cron     │
+  │  │  schedule: every 6 hours                  │            │
+  │  │  trigger: on metrics.json change          │            │
+  │  └─────────────────────────────────────────┘             │
+  │                                                           │
+  │  ┌─────────────────────────────────────────┐             │
+  │  │  metrics.json (state store)              │ ← truth    │
+  │  │  manually curated — because honesty      │            │
+  │  │  requires friction                        │            │
+  │  └─────────────────────────────────────────┘             │
+  │                                                           │
+  │  HIDDEN LAYERS (L1-L4)                                   │
+  │  ├─ L1: HTML comments (you found one if you're here)    │
+  │  ├─ L2: Hex-encoded messages in comment blocks          │
+  │  ├─ L3: Cross-references between modules (← → ↑)       │
+  │  └─ L4: Morse code in the header comment                │
+  └──────────────────────────────────────────────────────────┘
+
+  This architecture is deliberately over-engineered for a README.
+  That's the point. The medium IS the message.
+  If you can build a system out of a .md file, imagine what you can
+  build with actual infrastructure.
+```
+
+<!-- 
+  VERSION HISTORY OF THIS README (meta-data):
+  v1.0 — raw template, copy-pasted, zero personality
+  v2.0 — personalized, but still a "pretty README"
+  v3.0 — OS-architected, decision logs, failures, mental models
+  v4.0 — self-evolving, auto-updating, metrics engine
+  v5.0 — reverse-engineering layers, proof of intelligence, self-audit
+
+  Each version is a commit. The diff history proves iteration.
+  The fastest way to understand someone: watch how their work evolves.
+-->
+
+---
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--           mod.12 :: SYSTEM THINKING PROTOCOL                  -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+<details>
+<summary><b>mod.12 :: SYSTEM THINKING PROTOCOL — how I decompose hard problems</b></summary>
+<br>
+
+```
+safal@kernel:~$ man safal-solve
+
+DESCRIPTION
+
+  PHASE 1: UNDERSTAND (no code allowed)
+    - What is the actual problem? (not the symptom)
+    - What are the constraints? (time, memory, latency, cost)
+    - What's the simplest version that delivers 80% of value?
+
+  PHASE 2: MODEL (whiteboard, not IDE)
+    - Draw data flow. Every arrow = failure point.
+    - Identify invariants. What must ALWAYS be true?
+    - "What happens at 10× scale? 100×?"
+
+  PHASE 3: BUILD (smallest increment that generates feedback)
+    - Test first. Unhappy path first. Ship. Learn WHERE the design was wrong.
+
+  PHASE 4: VERIFY (measure, never assume)
+    - Profile before optimizing.
+    - Load test at 10× expected.
+    - Write the postmortem BEFORE shipping.
+
+ARCHITECTURAL INVARIANT (hidden layer 3):
+    Every system I build maintains this: the cost of understanding the system
+    must grow sublinearly with the size of the system. If it grows linearly,
+    the architecture is wrong. This applies to code, documentation, and this
+    README. That's why it's modular.
+
+SEE ALSO
+    mod.2 (decisions), mod.3 (failures), mod.5 (mental models)
+```
+</details>
+
+---
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--           mod.13 :: MEMORY MAP                                -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+<details>
+<summary><b>mod.13 :: MEMORY MAP — runtime skill allocation</b></summary>
 <br>
 
 <div align="center">
@@ -523,10 +825,10 @@ SEE ALSO
 ---
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<!--            mod.10 :: KERNEL METRICS                           -->
+<!--            mod.14 :: KERNEL METRICS                           -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
 
-## `mod.10` KERNEL METRICS
+## `mod.14` KERNEL METRICS
 
 <div align="center">
 
@@ -555,10 +857,10 @@ SEE ALSO
 ---
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<!--            mod.11 :: IPC                                      -->
+<!--            mod.15 :: IPC                                      -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
 
-## `mod.11` IPC — inter-process communication
+## `mod.15` IPC — inter-process communication
 
 <div align="center">
 
@@ -575,13 +877,6 @@ SEE ALSO
 </div>
 
 ```
-CHANNEL      LATENCY    AVAILABILITY   ROUTE TO
-─────────────────────────────────────────────────────────────────────
-LinkedIn     < 24h      async          professional, research, collabs
-Twitter      < 12h      async          technical takes, hot problems
-Email        < 48h      async          formal, proposals, detailed
-GitHub       immediate  always         code > all other channels
-─────────────────────────────────────────────────────────────────────
 ACCEPT: research collabs · competitive teams · quant projects · hard problems · internships
 DROP:   recruiters with no context · "quick syncs" · blockchain · template pitches
 ```
@@ -609,14 +904,27 @@ DROP:   recruiters with no context · "quick syncs" · blockchain · template pi
 ---
 
 <!--
- If you've read this far in the source, you're in the top 1% of people
- who visit GitHub profiles. Most people scroll. You investigate.
-
- That tells me something about you.
-
- Build something together? → safallovetocode@gmail.com
- Subject line: "I read your source"
- I'll reply within 24 hours. No exceptions.
+ ╔═══════════════════════════════════════════════════════════════════════════╗
+ ║                                                                           ║
+ ║   LAYER 4 — FINAL HIDDEN LAYER                                           ║
+ ║                                                                           ║
+ ║   You found all five layers:                                              ║
+ ║     L0: The rendered README (everyone sees this)                          ║
+ ║     L1: The source code comments (you opened "view source")              ║
+ ║     L2: Hex string at line ~45 (decoded: "Hidden layer 2 found.")        ║
+ ║     L3: Architectural invariant in mod.12 (the sublinear principle)      ║
+ ║     L4: Morse code in header (decoded: "ALWAYS BUILDING")               ║
+ ║                                                                           ║
+ ║   Most visitors find 0 layers. Recruiters find 0-1. Engineers find 2-3.  ║
+ ║   If you found all 5, you reverse-engineer systems for fun.              ║
+ ║                                                                           ║
+ ║   Email me: safallovetocode@gmail.com                                     ║
+ ║   Subject: "I found all 5 layers"                                         ║
+ ║   I'll reply within 12 hours.                                             ║
+ ║                                                                           ║
+ ║   — Safal                                                                 ║
+ ║                                                                           ║
+ ╚═══════════════════════════════════════════════════════════════════════════╝
 -->
 
 <div align="center">
@@ -624,15 +932,18 @@ DROP:   recruiters with no context · "quick syncs" · blockchain · template pi
 ```
 safal@kernel:~$ shutdown -h +∞ "not yet"
 
-  This profile is a living system.
-  It auto-updates. It logs failures. It tracks velocity.
-  It breaks, recovers, and ships. Like good software.
+  This profile is a living, self-auditing, self-evolving system.
+  It has 16 modules, 5 hidden layers, and a challenge.
+  It auto-updates, logs failures, tracks velocity, and audits itself weekly.
+  It has been rewritten 5 times. Each rewrite is a commit. Check git log.
 
-  If you're still reading, you think in systems too.
-  That's rare. Let's build something.
+  The medium is the message.
+
+  If you can build a system out of a markdown file,
+  imagine what you can build with actual infrastructure.
 
   — Safal Gupta, 2026
-  pid 1 | signal: SIGCONT | status: always building
+  pid 1 | modules: 16 | hidden_layers: 5 | status: always building
 ```
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:58a6ff&height=80&section=footer" width="100%"/>
