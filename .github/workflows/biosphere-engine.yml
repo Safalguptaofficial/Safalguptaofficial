@@ -1,0 +1,76 @@
+name: BIOSPHERE_ENGINE — Physics Tick
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"    # Game tick: every 5 minutes
+  workflow_dispatch:         # Manual trigger for testing
+
+env:
+  STATE_BRANCH: biosphere-state
+  STATE_FILE: ecosystem-state.json
+  SVG_OUTPUT: biosphere-live.svg
+
+jobs:
+  physics-tick:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout Main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main-repo
+      
+      - name: Checkout State Branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.STATE_BRANCH }}
+          path: state-repo
+        continue-on-error: true
+      
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      
+      - name: Install Dependencies
+        run: pip install numpy svgwrite requests
+      
+      - name: Initialize State (First Run)
+        if: steps.checkout-state.outcome == 'failure'
+        run: |
+          mkdir -p state-repo
+          echo '{"fish":[],"food":[],"algae":0,"timestamp":"${{ github.run_id }}","generation":0}' > state-repo/${{ env.STATE_FILE }}
+      
+      - name: Fetch Recent Stars
+        id: stars
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Get stars from last 10 minutes to catch any missed webhooks
+          python main-repo/scripts/biosphere/api.py \
+            --repo "${{ github.repository }}" \
+            --since-minutes 10 \
+            --output state-repo/new-stars.json
+      
+      - name: Run Physics Engine
+        run: |
+          python main-repo/scripts/biosphere/physics.py \
+            --state state-repo/${{ env.STATE_FILE }} \
+            --new-stars state-repo/new-stars.json \
+            --output-state state-repo/${{ env.STATE_FILE }} \
+            --output-svg state-repo/${{ env.SVG_OUTPUT }}
+      
+      - name: Commit State to Orphan Branch
+        run: |
+          cd state-repo
+          git init
+          git checkout -b ${{ env.STATE_BRANCH }} || git checkout ${{ env.STATE_BRANCH }}
+          git config user.name "Biosphere Engine"
+          git config user.email "biosphere@safal-os.local"
+          git add .
+          git commit -m "Tick ${{ github.run_number }} | $(date -u +%Y-%m-%dT%H:%M:%SZ)" || echo "No changes to commit"
+          git remote add origin https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git || true
+          git push -f origin ${{ env.STATE_BRANCH }} || true

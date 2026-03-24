@@ -1,0 +1,34 @@
+name: BIOSPHERE_EVENTS — Star & Issue Triggers
+
+on:
+  issues:
+    types: [opened]
+  watch:
+    types: [started]
+
+jobs:
+  handle-event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Determine Event Type
+        id: event
+        run: |
+          if [ "${{ github.event_name }}" == "issues" ]; then
+            echo "type=feed" >> $GITHUB_OUTPUT
+            echo "actor=${{ github.event.issue.user.login }}" >> $GITHUB_OUTPUT
+            echo "data=${{ github.event.issue.title }}" >> $GITHUB_OUTPUT
+          else
+            echo "type=spawn" >> $GITHUB_OUTPUT
+            echo "actor=${{ github.actor }}" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Trigger Engine Update
+        uses: actions/github-script@v6
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'biosphere-engine.yml',
+              ref: 'main'
+            })

@@ -883,6 +883,71 @@ DROP:   recruiters with no context · "quick syncs" · blockchain · template pi
 
 ---
 
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--           mod.16 :: THE KERNEL BIOSPHERE                      -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+## `mod.16` THE KERNEL BIOSPHERE — A Living Ecosystem
+
+<div align="center">
+
+**🌊 Status**: <span id="bio-status">Active</span> | **Population**: <span id="bio-pop">?</span> | **Water Quality**: <span id="bio-o2">98%</span>
+
+<img src="https://raw.githubusercontent.com/Safalguptaofficial/Safalguptaofficial/biosphere-state/biosphere-live.svg?v={{ timestamp }}" width="800" height="400" alt="Kernel Biosphere">
+
+<sub>
+
+`⚡ Click ⭐ above to spawn your avatar` | `🐛 Open an issue to feed the ecosystem` | `🔄 Updates every 5 minutes`
+
+</sub>
+
+</div>
+
+<details>
+<summary><b>How this works (Layer 6)</b></summary>
+
+```text
+ARCHITECTURE:
+┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+│   Visitor    │────▶│  GitHub API  │────▶│   Actions    │
+│   (Star/Issue)│     │   Webhook    │     │   Trigger    │
+└──────────────┘     └──────────────┘     └──────┬───────┘
+                                                 │
+                                                 ▼
+┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+│   README.md  │◀────│   Git Raw    │◀────│    SVG       │
+│   (Renders)  │     │   Content    │     │   Generator  │
+└──────────────┘     └──────────────┘     └──────────────┘
+       ▲                                         │
+       └─────────────────────────────────────────┘
+              State JSON (orphan branch)
+
+PHYSICS ENGINE:
+Each visitor who stars becomes a fish (Boids algorithm)
+Fish have velocity, hunger (decays 0.5%/tick), and size
+Opening an Issue drops food pellets (nutrition = title length)
+Commit frequency increases algae/oxygen levels
+Dead fish (hunger=0) sink to bottom and become nutrients
+
+NO DATABASE: State persisted via git commits to orphan branch
+NO SERVER: GitHub Actions acts as game loop (cron every 5min)
+NO JS/CSS ANIM: Pure SVG SMIL animation (GitHub-safe)
+```
+
+</details>
+
+<div align="center">
+
+<sub>
+
+`Last extinction event:` Never | `Current epoch:` Holocene | `Evolutionary pressure:` High
+
+</sub>
+
+</div>
+
+---
+
 <div align="center">
 
 [![trophy](https://github-profile-trophy.vercel.app/?username=Safalguptaofficial&theme=darkhub&no-frame=true&no-bg=true&margin-w=4&rank=SECRET,SSS,SS,S,AAA,AA,A)](https://github.com/ryo-ma/github-profile-trophy)
