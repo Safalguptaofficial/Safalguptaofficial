@@ -1,0 +1,67 @@
+{
+  "last_manual_update": "2026-03-24",
+  "dsa": {
+    "total_solved": 847,
+    "hard_pct": 28,
+    "weekly_avg": 23,
+    "daily_target": 3
+  },
+  "commits": {
+    "today": 3,
+    "this_week": 18,
+    "this_month": 74
+  },
+  "streak": {
+    "current": 47,
+    "longest": 47
+  },
+  "projects": {
+    "shipped": 4,
+    "in_progress": 2,
+    "killed": 3,
+    "ship_rate_per_quarter": 1.5
+  },
+  "learning": {
+    "papers_this_month": 6,
+    "books_active": 2,
+    "sys_design_cases_this_month": 4
+  },
+  "velocity": {
+    "2025-Q1": {
+      "dsa": 2, "cpp": 3, "ml": 1, "quant": 0, "sysdesign": 2, "iot": 4
+    },
+    "2025-Q3": {
+      "dsa": 4, "cpp": 5, "ml": 3, "quant": 2, "sysdesign": 3, "iot": 5
+    },
+    "2026-Q1": {
+      "dsa": 6, "cpp": 6, "ml": 5, "quant": 4, "sysdesign": 4, "iot": 5
+    }
+  },
+  "engineering_log": [
+    {
+      "date": "2026-03-24 19:33",
+      "type": "BREAKING",
+      "entry": "lock-free queue impl in C++ — memory_order_release is subtler than textbooks suggest. building to learn."
+    },
+    {
+      "date": "2026-03-22 14:10",
+      "type": "FIXING",
+      "entry": "backtester memory spike during walk-forward optimization. suspect: vector realloc in hot loop. action: reserve() + valgrind --tool=massif profiling."
+    },
+    {
+      "date": "2026-03-20 09:30",
+      "type": "READING",
+      "entry": "DDIA ch.5-7 — replication, partitioning, transactions. connecting theory → IoT pipeline architecture decisions."
+    },
+    {
+      "date": "2026-03-18 22:00",
+      "type": "SHIPPED",
+      "entry": "risk scorer API containerized → staging. p95 latency: 47ms (target: <50ms). ✓ met. next: model versioning with MLflow."
+    },
+    {
+      "date": "2026-03-15 11:20",
+      "type": "SOLVED",
+      "entry": "LC #2846 (hard) — minimum edge weight graph traversal. key insight: modified Dijkstra with edge-weight constraints. time: 38 min. clean on first submit."
+    }
+  ]
+}

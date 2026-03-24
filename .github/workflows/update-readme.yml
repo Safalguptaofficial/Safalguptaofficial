@@ -1,0 +1,35 @@
+name: Update Profile Metrics
+on:
+  schedule:
+    - cron: "0 */6 * * *"  # every 6 hours
+  workflow_dispatch:        # manual trigger
+  push:
+    branches: [main]
+    paths:
+      - 'metrics.json'      # re-render whenever you update metrics
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run metrics engine
+        run: python scripts/update_metrics.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "safal-metrics-bot"
+          git config user.email "bot@safal.os"
+          git add README.md
+          git diff --cached --quiet || (git commit -m "chore(metrics): auto-update telemetry [skip ci]" && git push)
